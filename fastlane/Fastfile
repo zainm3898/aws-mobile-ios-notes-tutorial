@@ -1,3 +1,39 @@
+default_platform(:ios)
+platform :ios do
+#       desc ???Install pod dependencies???
+#       lane :install_pods do
+#          cocoapods(
+#              podfile: "/Users/ec2-user/.jenkins/workspace/SampleProject",
+#              use_bundle_exec: false)
+
+
+#       desc "Incrementing Build Number"
+#       lane :increment_build do
+#            current_build_number = latest_testflight_build_number(version: "1.0")
+#            increment_build_number(
+#            build_number: current_build_number + 1
+#            )
+       end
+
+#      lane :build_ipa do
+#          gym(
+#             scheme: "MyNotes",
+#             output_directory: "/Users/ec2-user/.jenkins/workspace/SampleProject",
+#             output_name: "MyNotes",
+#             export_method: "app-store",
+#             export_options: {
+#               signingCertificates:"iPhone Distribution: NETSOL Technologies Limited",
+#               provisioningProfiles:{
+#                  "xyz.weom.explore" => "WEOM_Distribution_Profile"
+#                              }
+#              },
+#            include_bitcode: false,
+#            clean: true
+#               )
+#      end
+#end
+# default_platform(:ios)
+
 # platform :ios do
 #   desc "Description of what the lane does"
  lane :custom_lane do |options|
@@ -54,4 +90,3 @@
 #     output_name: "MyNotes.ipa"
 #   )
 # end
-
