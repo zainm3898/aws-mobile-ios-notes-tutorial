@@ -17,18 +17,20 @@
 default_platform(:ios)
 
 # Define lane for creating a build
-lane :custom_lane do
+lane :custom_lane do |options|
   # Use gym action to create a build
-  gym(
-    # Specify the project or workspace file name
-    project: "MyNotes.xcodeproj",
-    # Set the scheme to build
-    scheme: "MyNotes",
-    # Set the output directory for the build
-    output_directory: "./builds",
-    # Set the name for the output .ipa file
-    output_name: "MyNotes.ipa"
-  )
+  xcodebuild(
+   project:" MyNotes.xcodeproj",
+   scheme: "MyNotes",
+   configuration: "Debug",
+   clean: options[:clean],
+   build: true,
+   destination: "generic/platform=iOS",
+   build_settings: {
+    "CODE_SIGNING_REQUIRED" => "NO",
+    "CODE_SIGN_IDENTITY" => ""
+    }
+)
 end
 
 # default_platform(:ios)
