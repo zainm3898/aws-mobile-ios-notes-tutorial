@@ -16,24 +16,54 @@
 
 #?
 default_platform(:ios)
-
 platform :ios do
-  desc "Description of what the lane does"
-lane :custom_lane do |options|
-	   xcodebuild(
-		   project:" MyNotes.xcodeproj",
-		   scheme: "MyNotes",
-		   configuration: "Debug",
-		   clean: options[:clean] || false,
-		   build: true,
-		   destination: "generic/platform=iOS",
-		   build_settings: {
-		    "CODE_SIGNING_REQUIRED" => "NO",
-		    "CODE_SIGN_IDENTITY" => ""
-		 }
-	      )
-  end
+      desc “Install pod dependencies”
+      lane :install_pods do
+         cocoapods(
+             podfile: "/Users/ec2-user/.jenkins/workspace/SampleProject",
+             use_bundle_exec: false)
 end
+      
+      desc "Incrementing Build Number"
+      lane :increment_build do
+           current_build_number = latest_testflight_build_number(version: "1.0")
+           increment_build_number(
+           build_number: current_build_number + 1
+           )
+      end
+      desc “Archive and Build IPA”
+      lane :build_ipa do
+       install_pods
+       increment_build
+          gym(
+             workspace: "SampleProject",
+             scheme: "MyNotes",
+             output_directory: "/Users/ec2-user/.jenkins/workspace/SampleProject",
+             output_name: "MyNotes",
+             export_method: “app-store”,
+             include_bitcode: false,
+             clean: true)
+       end
+end
+# default_platform(:ios)
+
+# platform :ios do
+#   desc "Description of what the lane does"
+# lane :custom_lane do |options|
+# 	   xcodebuild(
+# 		   project:" MyNotes.xcodeproj",
+# 		   scheme: "MyNotes",
+# 		   configuration: "Debug",
+# 		   clean: options[:clean] || false,
+# 		   build: true,
+# 		   destination: "generic/platform=iOS",
+# 		   build_settings: {
+# 		    "CODE_SIGNING_REQUIRED" => "NO",
+# 		    "CODE_SIGN_IDENTITY" => ""
+# 		 }
+# 	      )
+#   end
+# end
 
 
 # default_platform(:ios)
