@@ -17,24 +17,22 @@
 #?
 default_platform(:ios)
 platform :ios do
-      desc “Install pod dependencies”
-      lane :install_pods do
-         cocoapods(
-             podfile: "/Users/ec2-user/.jenkins/workspace/SampleProject",
-             use_bundle_exec: false)
+#       desc “Install pod dependencies”
+#       lane :install_pods do
+#          cocoapods(
+#              podfile: "/Users/ec2-user/.jenkins/workspace/SampleProject",
+#              use_bundle_exec: false)
 end
       
-      desc "Incrementing Build Number"
-      lane :increment_build do
-           current_build_number = latest_testflight_build_number(version: "1.0")
-           increment_build_number(
-           build_number: current_build_number + 1
-           )
-      end
+#       desc "Incrementing Build Number"
+#       lane :increment_build do
+#            current_build_number = latest_testflight_build_number(version: "1.0")
+#            increment_build_number(
+#            build_number: current_build_number + 1
+#            )
+#       end
       desc “Archive and Build IPA”
       lane :build_ipa do
-       install_pods
-       increment_build
           gym(
              workspace: "SampleProject",
              scheme: "MyNotes",
@@ -44,7 +42,7 @@ end
              include_bitcode: false,
              clean: true)
        end
-end
+#end
 # default_platform(:ios)
 
 # platform :ios do
