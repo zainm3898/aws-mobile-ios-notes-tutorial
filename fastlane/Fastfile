@@ -19,19 +19,19 @@ default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
-  lane :custom_lane do
-   xcodebuild(
-	   project:" MyNotes.xcodeproj",
-	   scheme: "MyNotes",
-	   configuration: "Debug",
-	   clean: options[:clean],
-	   build: true,
-	   destination: "generic/platform=iOS",
-	   build_settings: {
-	    "CODE_SIGNING_REQUIRED" => "NO",
-	    "CODE_SIGN_IDENTITY" => ""
-         }
-      )
+lane :custom_lane do |options|
+	   xcodebuild(
+		   project:" MyNotes.xcodeproj",
+		   scheme: "MyNotes",
+		   configuration: "Debug",
+		   clean: options[:clean] || false,
+		   build: true,
+		   destination: "generic/platform=iOS",
+		   build_settings: {
+		    "CODE_SIGNING_REQUIRED" => "NO",
+		    "CODE_SIGN_IDENTITY" => ""
+		 }
+	      )
   end
 end
 
