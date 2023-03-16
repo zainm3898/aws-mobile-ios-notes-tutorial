@@ -18,7 +18,8 @@ default_platform(:ios)
 platform :ios do
 	desc "Description of what the lane some does"
 lane :starter do
-	custom_lane
+	puts("i am in starer" )
+	system('fasttlane custom_lane')
 	end 
 end 
 
