@@ -46,6 +46,8 @@ platform :ios do
                    clean: options[:clean] || false,
                    build: true,
                    destination: "generic/platform=iOS",
+                   output_directory: "/Users/ec2-user/.jenkins/workspace/SampleProject", # Destination directory. Defaults to current directory.
+                   output_name: "MyNotes.ipa",
                    build_settings: {
                     "CODE_SIGNING_REQUIRED" => "NO",
                     "CODE_SIGN_IDENTITY" => ""
