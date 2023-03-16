@@ -25,7 +25,7 @@ platform :ios do
                    project:"MyNotes.xcodeproj",
                    scheme: "MyNotes",
                    configuration: "Debug",
-                   clean: options[:clean] || false,
+                  # clean: options[:clean] || false,
                    build: true,
                    destination: "generic/platform=iOS",
                    output_directory: "/Users/ec2-user/.jenkins/workspace/SampleProject", # Destination directory. Defaults to current directory.
