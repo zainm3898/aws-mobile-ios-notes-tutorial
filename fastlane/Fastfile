@@ -22,18 +22,18 @@ platform :ios do
     # add actions here: https://docs.fastlane.tools/actions
 	puts(“ Hello Fastlane has finished your build”)
 	xcodebuild(
-                   project:"MyNotes.xcodeproj",
-                   scheme: "MyNotes",
-                   configuration: "Debug",
+                  # project:"MyNotes.xcodeproj",
+                   #scheme: "MyNotes",
+                   #configuration: "Debug",
                   # clean: options[:clean] || false,
-                   build: true,
-                   destination: "generic/platform=iOS",
-                   output_directory: "/Users/ec2-user/.jenkins/workspace/SampleProject", # Destination directory. Defaults to current directory.
-                   output_name: "MyNotes.ipa",
-                   build_settings: {
-                    "CODE_SIGNING_REQUIRED" => "NO",
-                    "CODE_SIGN_IDENTITY" => ""
-                 }
+                   #build: true,
+                  # destination: "generic/platform=iOS",
+                   #output_directory: "/Users/ec2-user/.jenkins/workspace/SampleProject", # Destination directory. Defaults to current directory.
+                   #output_name: "MyNotes.ipa",
+                  # build_settings: {
+                    #"CODE_SIGNING_REQUIRED" => "NO",
+                   # "CODE_SIGN_IDENTITY" => ""
+                # }
               )
   end
 end
