@@ -1,5 +1,5 @@
-default_platform(:ios)
-platform :ios do
+#default_platform(:ios)
+#platform :ios do
 #       desc ???Install pod dependencies???
 #       lane :install_pods do
 #          cocoapods(
@@ -13,8 +13,16 @@ platform :ios do
 #            increment_build_number(
 #            build_number: current_build_number + 1
 #            )
-       end
+   #    end
+default_platform(:ios)
 
+platform :ios do
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    # add actions here: https://docs.fastlane.tools/actions
+	puts(“ Hello Fastlane has finished your build”)
+  end
+end
 #      lane :build_ipa do
 #          gym(
 #             scheme: "MyNotes",
@@ -36,25 +44,25 @@ platform :ios do
 
 # platform :ios do
 #   desc "Description of what the lane does"
- Dir.chdir(File.dirname(__FILE__))
- lane :custom_lane do |options|
+# Dir.chdir(File.dirname(__FILE__))
+ #lane :custom_lane do |options|
    #   sh "pwd" # => "[root]/fastlane"
   #    puts Dir.pwd # => "[root]/fastlane"
-           xcodebuild(
-                   project:"MyNotes.xcodeproj",
-                   scheme: "MyNotes",
-                   configuration: "Debug",
-                   clean: options[:clean] || false,
-                   build: true,
-                   destination: "generic/platform=iOS",
-                   output_directory: "/Users/ec2-user/.jenkins/workspace/SampleProject", # Destination directory. Defaults to current directory.
-                   output_name: "MyNotes.ipa",
-                   build_settings: {
-                    "CODE_SIGNING_REQUIRED" => "NO",
-                    "CODE_SIGN_IDENTITY" => ""
-                 }
-              )
-   end
+#            xcodebuild(
+#                    project:"MyNotes.xcodeproj",
+#                    scheme: "MyNotes",
+#                    configuration: "Debug",
+#                    clean: options[:clean] || false,
+#                    build: true,
+#                    destination: "generic/platform=iOS",
+#                    output_directory: "/Users/ec2-user/.jenkins/workspace/SampleProject", # Destination directory. Defaults to current directory.
+#                    output_name: "MyNotes.ipa",
+#                    build_settings: {
+#                     "CODE_SIGNING_REQUIRED" => "NO",
+#                     "CODE_SIGN_IDENTITY" => ""
+#                  }
+#               )
+#    end
 # end
 
 
