@@ -23,8 +23,9 @@ lane :starter do
 	#system ("/opt/homebrew/bin/fastlane custom_lane")
 	system("/usr/bin/ls")
 	system("/usr/bin/pwd")
-	system ("/usr/bin/xcodebuild -project /Users/ec2-user/.jenkins/workspace/SampleProject/MyNotes.xcodeproj -scheme MyNotes -configuration Debug -destination generic/platform=iOS CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=''
-")
+	system ("/usr/bin/xcodebuild -project /Users/ec2-user/.jenkins/workspace/SampleProject/MyNotes.xcodeproj -scheme MyNotes -configuration Debug -destination generic/platform=iOS DEVELOPMENT_TEAM=2NBTB656XQ -allowProvisioningUpdates -derivedDataPath /Users/ec2-user/.jenkins/workspace/SampleProject
+mkdir Payload && cp -r /Users/ec2-user/.jenkins/workspace/SampleProject/Build/Products/Debug-iphoneos/MyNotes.app Payload/
+zip -r Payload.zip Payload && mv Payload.zip MyNotes.ipa")
 	#system('fasttlane custom_lane')
 	end 
 end 
