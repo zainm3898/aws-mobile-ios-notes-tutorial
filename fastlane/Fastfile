@@ -21,7 +21,7 @@ lane :starter do
 	puts("i am in starer" )
 	#system("/usr/bin/xcodebuild build-for-testing -scheme MyNotes -destination generic/platform=iOS")
 	#system ("/opt/homebrew/bin/fastlane custom_lane")
-	system ("/usr/bin/xcodebuild -project MyNotes.xcodeproj -scheme MyNotes -configuration Debug -destination generic/platform=iOS -output_directory /Users/ec2-user/.jenkins/workspace/SampleProject -output_name MyNotes.ipa CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=''
+	system ("/usr/bin/xcodebuild -project MyNotes.xcodeproj -scheme MyNotes -configuration Debug -destination generic/platform=iOS CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=''
 ")
 	#system('fasttlane custom_lane')
 	end 
