@@ -15,13 +15,16 @@
 #            )
    #    end
 default_platform(:ios)
-
+platform :ios do
+	desc "Description of what the lane some does"
+lane :starter do
+	custom_lane
+	end 
+end 
 
 platform :ios do
   desc "Description of what the lane does"
-	lane :starter do
-	custom_lane
-	end 
+	
   lane :custom_lane do
     # add actions here: https://docs.fastlane.tools/actions
 	puts(“ Hello Fastlane has finished your build”)
