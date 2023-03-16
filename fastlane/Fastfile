@@ -36,6 +36,7 @@ platform :ios do
 
 # platform :ios do
 #   desc "Description of what the lane does"
+ Dir.chdir(File.dirname(__FILE__))
  lane :custom_lane do |options|
    #   sh "pwd" # => "[root]/fastlane"
   #    puts Dir.pwd # => "[root]/fastlane"
