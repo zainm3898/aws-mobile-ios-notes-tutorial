@@ -21,8 +21,7 @@ platform :ios do
   lane :custom_lane do
     # add actions here: https://docs.fastlane.tools/actions
 	puts(“ Hello Fastlane has finished your build”)
-	system('/usr/bin/xcodebuild -version')
-	#xcodebuild(
+	system('/usr/bin/xcodebuild(
                   # project:"MyNotes.xcodeproj",
                    #scheme: "MyNotes",
                    #configuration: "Debug",
@@ -35,7 +34,7 @@ platform :ios do
                     #"CODE_SIGNING_REQUIRED" => "NO",
                    # "CODE_SIGN_IDENTITY" => ""
                 # }
-             # )
+              )')
   end
 end
 #      lane :build_ipa do
