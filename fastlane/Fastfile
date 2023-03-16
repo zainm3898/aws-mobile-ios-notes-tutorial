@@ -39,7 +39,7 @@ platform :ios do
  lane :custom_lane do |options|
    #   sh "pwd" # => "[root]/fastlane"
   #    puts Dir.pwd # => "[root]/fastlane"
-           xcodebuild(
+           gym(
                    project:"MyNotes.xcodeproj",
                    scheme: "MyNotes",
                    configuration: "Debug",
