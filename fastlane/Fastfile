@@ -19,10 +19,9 @@ platform :ios do
 	desc "Description of what the lane some does"
 lane :starter do
 	puts("i am in starer" )
-	system('pwd')
-	system("ls -l")
+	system("/usr/bin/xcodebuild()")
 	system ("/opt/homebrew/bin/fastlane custom_lane")
-	system('fasttlane custom_lane')
+	#system('fasttlane custom_lane')
 	end 
 end 
 
