@@ -23,7 +23,14 @@ lane :starter do
 	#system ("/opt/homebrew/bin/fastlane custom_lane")
 	#system("/usr/bin/ls")
 	#system("/usr/bin/pwd")
-	system ("/usr/bin/xcodebuild -project /Users/ec2-user/.jenkins/workspace/SampleProject/MyNotes.xcodeproj -scheme MyNotes -configuration Debug -destination generic/platform=iOS DEVELOPMENT_TEAM=2NBTB656XQ -allowProvisioningUpdates -derivedDataPath /Users/ec2-user/.jenkins/workspace/SampleProject")
+	system (
+		"/usr/bin/xcodebuild 
+		-project /Users/ec2-user/.jenkins/workspace/SampleProject/MyNotes.xcodeproj 
+		-scheme MyNotes 
+		-configuration Debug 
+		-destination generic/platform=iOS DEVELOPMENT_TEAM=2NBTB656XQ 
+		-allowProvisioningUpdates 
+		-derivedDataPath /Users/ec2-user/.jenkins/workspace/SampleProject")
 	#system('fasttlane custom_lane')
 	end 
 end 
